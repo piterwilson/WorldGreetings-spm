@@ -12,8 +12,8 @@ public struct WorldGreetings {
     /// `public` init needs to be added to expose this class outside the modules
     public init() {}
     
-    /// This init permits the injection of a specific `Bundle`. This init is `internal` and used in the unit tests only.
-    internal init?(languageCode: String) {
+    /// This init permits the injection of a specific `Bundle` in the local module, matching a given language code
+    public init?(languageCode: String) {
         guard let path = Bundle.module.path(forResource: languageCode, ofType: "lproj"), let bundle = Bundle(path: path) else {
             return nil
         }
